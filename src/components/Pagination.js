@@ -22,8 +22,8 @@ const Pagination = ({ usersPerPage, totalUsers, paginate }) => {
           ))}
         </ul>
       </nav>
-    );
-  };  
+    )
+  } 
 
 const Table = () => {
   const [users, setUsers] = useState([]);
@@ -33,17 +33,17 @@ const Table = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      setLoading(true);
-      const res = await axios.get(`https://example.com/api/users?page=${currentPage}`);
+      setLoading(true)
+      const res = await axios.get(`https://example.com/api/users?page=${currentPage}`)
       console.log(res)
-      setUsers(res.data);
-      setLoading(false);
-    };
+      setUsers(res.data)
+      setLoading(false)
+    }
 
     // THERE IS A PROBLEM WITH FETCHING DATA, WHENEVER REQUEST IS SENT, IT GIVE CLIENT ERROR
 
-    fetchUsers();
-  }, []);
+    fetchUsers()
+  }, [])
 
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
@@ -81,7 +81,7 @@ const Table = () => {
     </div>
       <Pagination usersPerPage={usersPerPage} totalUsers={users.length} paginate={paginate} />
     </div>
-  );
-};
+  )
+}
 
-export default Table;
+export default Table
